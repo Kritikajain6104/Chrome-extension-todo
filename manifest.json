@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "AZ Problem Tracker",
+  "version": "0.1",
+  "author": "Kritika Jain",
+  "description": "A Chrome extension to add problems from AZ to toDo list in extension",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://maang.in/problems/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources" : [
+    {
+      "resources": [
+        "assets/background.png",
+        "assets/delete.png",
+        "assets/play.png"
+      ],
+      "matches" : ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "AZ Problem Tracker"
+  }
+}
